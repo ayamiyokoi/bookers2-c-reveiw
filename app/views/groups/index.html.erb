@@ -1,18 +1,5 @@
 <div class="container">
   <h2>Groups</h2>
-    <% current_user.groups.each do |group| %>
-      <div class="group">
-        <%= link_to '#' do %>
-          <div class="group__name">
-            <%= group.name %>
-          </div>
-          <div class="group__message">
-            メッセージはまだありません。
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-</div>
 
 
 <table class='table'>
@@ -25,12 +12,14 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.groups.each do |group| %>
+    <% @groups.each do |group| %>
       <tr>
         <td><%= attachment_image_tag(group, :group_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
         <td><%= link_to "#{group.name}", "#" %></td>
         <td><%= group.introduction %></td>
-        <td><%= link_to "Edit", edit_group_path(:groups_id), class: "btn btn-success" %></td>
+        <% if group.owner_id.to_i == current_user.id.to_i %>
+        <td><%= link_to "Edit", edit_group_path(group), class: "btn btn-success" %></td>
+        <% end %>
         </tr>
     <% end %>
   </tbody>

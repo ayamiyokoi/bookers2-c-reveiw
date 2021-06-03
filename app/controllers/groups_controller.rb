@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
+    @groups = Group.all
   end
 
   def new
@@ -22,9 +23,17 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to root_path, notice: 'グループを更新しました'
+      redirect_to groups_path, notice: 'グループを更新しました'
     else
       render :edit
+    end
+  end
+
+  def edit
+    if @group.owner_id.to_i == current_user.id.to_i
+      render "edit"
+    else
+      redirect_to groups_path
     end
   end
 
