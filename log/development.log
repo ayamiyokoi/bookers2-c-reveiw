@@ -1044,3 +1044,268 @@ Migrating to AddIntroductionToGroups (20210603090402)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddGroupImageIdToGroups (20210603090753)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "groups" ADD "group_image_id" varchar[0m
+  ↳ db/migrate/20210603090753_add_group_image_id_to_groups.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603090753"]]
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:11:37 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (40.6ms)
+  Rendered groups/new.html.erb within layouts/application (43.7ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x000000000555d2f0>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43:       
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb__973084538698008888_43261340'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb__973084538698008888_43261340'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___1065848610538134797_42826920'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:16:54 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (24.1ms)
+  Rendered groups/new.html.erb within layouts/application (26.2ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 5.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x0000000004bd8838>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43: 
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb___2845237283269636284_38321060'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb___2845237283269636284_38321060'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___2497407909424172211_38151320'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:18:45 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (18.8ms)
+  Rendered groups/new.html.erb within layouts/application (20.4ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x00007f3bf47ca038>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label :group_image, "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43: 
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb___2845237283269636284_69947740957020'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb___2845237283269636284_69947740957020'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___2497407909424172211_69947740886900'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:19:53 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (18.9ms)
+  Rendered groups/new.html.erb within layouts/application (20.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x00007f3bf47c2180>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label :group_image, "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43: 
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb___2845237283269636284_69947740863400'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb___2845237283269636284_69947740863400'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___2497407909424172211_69947740830340'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:22:02 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (25.9ms)
+  Rendered groups/new.html.erb within layouts/application (28.3ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x00007f3bf4a79180>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label :group_image, "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43: 
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb___2845237283269636284_69947770991300'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb___2845237283269636284_69947770991300'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___2497407909424172211_69947770960720'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:22:26 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (40.3ms)
+  Rendered groups/new.html.erb within layouts/application (47.5ms)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `group_image_attachment_definition' for #<Group:0x00000000041315b0>
+Did you mean?  group_image_id_change):
+    39:         <%= f.label :group_image, "グループ画像" %>
+    40:       </div>
+    41:       <div>
+    42:         <%= f.attachment_field :group_image %>
+    43: 
+    44:       </div>
+    45:     </div>
+  
+app/views/groups/_form.html.erb:42:in `block in _app_views_groups__form_html_erb___2505025188386603890_32612220'
+app/views/groups/_form.html.erb:1:in `_app_views_groups__form_html_erb___2505025188386603890_32612220'
+app/views/groups/new.html.erb:3:in `_app_views_groups_new_html_erb___1662974828916154321_25769760'
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:24:12 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:53
+  Rendered groups/_form.html.erb (103.7ms)
+  Rendered groups/new.html.erb within layouts/application (105.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 817ms (Views: 772.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:27:18 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:53
+  Rendered groups/_form.html.erb (6.0ms)
+  Rendered groups/new.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 134ms (Views: 128.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:27:30 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:53
+  Rendered groups/_form.html.erb (4.9ms)
+  Rendered groups/new.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 174ms (Views: 168.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:28:05 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:55
+  Rendered groups/_form.html.erb (7.4ms)
+  Rendered groups/new.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 139ms (Views: 130.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:29:12 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:55
+  Rendered groups/_form.html.erb (4.9ms)
+  Rendered groups/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 125ms (Views: 120.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/groups/new" for 113.158.219.117 at 2021-06-03 09:29:45 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering groups/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/groups/_form.html.erb:55
+  Rendered groups/_form.html.erb (5.5ms)
+  Rendered groups/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 110ms (Views: 105.8ms | ActiveRecord: 0.2ms)
+
+
