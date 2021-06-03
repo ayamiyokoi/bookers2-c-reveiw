@@ -1,0 +1,14 @@
+<div class="groups">
+    <% current_user.groups.each do |group| %>
+      <div class="group">
+        <%= link_to '#' do %>
+          <div class="group__name">
+            <%= group.name %>
+          </div>
+          <div class="group__message">
+            メッセージはまだありません。
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>
