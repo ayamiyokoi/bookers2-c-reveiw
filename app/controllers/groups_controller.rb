@@ -1,8 +1,12 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:edit, :update, :show]
 
   def index
     @groups = Group.all
+    @book = Book.new
+  end
+  
+  def show
     @book = Book.new
   end
 
@@ -35,6 +39,14 @@ class GroupsController < ApplicationController
       render "edit"
     else
       redirect_to groups_path
+    end
+  end
+  
+  def join
+    @group = Group.find_by(id: params[:id])
+    if !@group.users.include?(current_user)
+        @group.users << current_user
+        redirect_to groups_path
     end
   end
 
