@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  
+
   resources :groups, only: [:new, :create, :edit, :update, :index, :show] do
     member do
-      get :join
+      post :join
     end
   end
 
