@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :edit, :update, :index, :show] do
     member do
       post :join
+      delete :leave
     end
   end
 
