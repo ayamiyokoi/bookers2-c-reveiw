@@ -36,6 +36,9 @@
                 <td><%= link_to "Join this group", join_group_path(@group), class: "btn btn-success", method: :post %></td>
                 <% else %>
                 <td><%= link_to "Leave this group", leave_group_path(@group), class: "btn btn-danger", method: :delete %></td>
+              <% else %>
+                <td><%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %></td>
+                <td><%= link_to "Notice an Event", "#", class: "btn btn-info" %></td>
               <% end %>
             </tr>
             <% end %>
