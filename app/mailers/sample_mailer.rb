@@ -7,7 +7,10 @@ class SampleMailer < ApplicationMailer
   #
   def send_when_update(event)
     @event = event
-    mail to:      user.email,
-         subject: 'ベントが作成されました。'
+    @group = Group.find(@event.group_id)
+
+
+    mail to:      @group.group_users.user.email,
+         subject: 'イベントが作成されました。'
   end
 end

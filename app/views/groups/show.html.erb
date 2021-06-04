@@ -40,7 +40,7 @@
               <% end %>
               <% if @group.owner_id.to_i == current_user.id.to_i %>
                 <td><%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %></td>
-                <td><%= link_to "Notice an Event", new_events_path, class: "btn btn-info" %></td>
+                <td><%= link_to "Notice an Event", new_group_event_path(@group), class: "btn btn-info" %></td>
               <% end %>
             </tr>
 

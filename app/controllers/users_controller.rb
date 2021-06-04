@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "You have updated user successfully."
-       SampleMailer.send_when_update(current_user).deliver
     else
       render "edit"
     end

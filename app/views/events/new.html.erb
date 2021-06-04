@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <h2>Event Mail</h2>
-  <%= form_with model:@event, local:true do |f| %>
+  <%= form_with model: [@group, @event], local:true do |f| %>
 
   <div class="form-group">
     <%= f.label :title %>

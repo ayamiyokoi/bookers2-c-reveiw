@@ -10,13 +10,14 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-  resources :events, only: [:new, :create, :show]
+
 
   resources :groups, only: [:new, :create, :edit, :update, :index, :show] do
     member do
       post :join
       delete :leave
     end
+    resources :events, only: [:new, :create, :show]
   end
 
   get 'search' => "search#search"

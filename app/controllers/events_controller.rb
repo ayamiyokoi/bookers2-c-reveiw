@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
   def new
+    @group = Group.find(params[:group_id])
     @event= Event.new
   end
 
   def create
-    event = Event.new(event_params)
-    event.save
-    redirect_to event_path(event)
+    event = Event.create(event_params)
+    SampleMailer.send_when_update(event).deliver
+    redirect_to group_event_path(event)
   end
 
   def show
@@ -15,7 +16,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :content)
+    params.require(:event).permit(:title, :content).merge(group_id: params[:group_id])
   end
 
 
