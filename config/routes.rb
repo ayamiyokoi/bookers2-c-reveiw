@@ -13,11 +13,13 @@ Rails.application.routes.draw do
 
 
   resources :groups, only: [:new, :create, :edit, :update, :index, :show] do
+    get "new/mail" => "groups#new_mail"
+    get "send/mail" => "groups#send_mail"
     member do
       post :join
       delete :leave
     end
-    resources :events, only: [:new, :create, :show]
+
   end
 
   get 'search' => "search#search"

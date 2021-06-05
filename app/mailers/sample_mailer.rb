@@ -5,13 +5,10 @@ class SampleMailer < ApplicationMailer
   #
   #   en.sample_mailer.send_when_update.subject
   #
-  default to: -> {@group.group_users.user.pluck(:email) }
-  def send_when_update(event)
-    @event = event
-    @group = Group.find(params[:group_id])
-
-
-    mail to:      @group.group_users.user.email,
-         subject: 'イベントが作成されました。'
+  def send_when_update(group_users, title, content)
+    @title = title
+    @content = content
+    mail bcc: group_users.pluck(:email), subject: title
   end
 end
+
