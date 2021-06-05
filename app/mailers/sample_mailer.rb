@@ -5,9 +5,10 @@ class SampleMailer < ApplicationMailer
   #
   #   en.sample_mailer.send_when_update.subject
   #
+  default to: -> {@group.group_users.user.pluck(:email) }
   def send_when_update(event)
     @event = event
-    @group = Group.find(@event.group_id)
+    @group = Group.find(params[:group_id])
 
 
     mail to:      @group.group_users.user.email,
